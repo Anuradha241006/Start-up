@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f7f8fb;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-primary-500/20 text-primary-900;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-glass;
+  }
+  .glass-dark {
+    @apply bg-ink-950/60 backdrop-blur-xl border border-white/10 text-white;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 bg-clip-text text-transparent;
+  }
+  .gradient-bg {
+    background: radial-gradient(1200px 600px at 10% -10%, rgba(51,119,255,0.12), transparent 60%),
+                radial-gradient(1000px 500px at 100% 0%, rgba(6,180,209,0.10), transparent 55%),
+                radial-gradient(800px 500px at 50% 120%, rgba(51,119,255,0.08), transparent 60%);
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-primary-700/30 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-60 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink-200 bg-white/70 px-5 py-2.5 text-sm font-semibold text-ink-700 backdrop-blur transition-all hover:border-primary-300 hover:text-primary-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  .btn-glass {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white/40;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-ink-200 bg-white/80 px-4 py-3 text-sm text-ink-900 placeholder-ink-400 backdrop-blur transition-all focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/30;
+  }
+  .card-surface {
+    @apply rounded-2xl border border-ink-100 bg-white shadow-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
